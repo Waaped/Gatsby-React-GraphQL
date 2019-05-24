@@ -85,8 +85,8 @@ $color:green;
 3. Once we import the style into header, it is affecting the entire page, because the a tags are not scoped to the component
     1. We change the header.scss into modular scss. So the styling becomes dynamic. Header.module.scsss
     2. This stops the global CSS problems you had in Your Vendo App when you implemented the State managed component ‘CSS files in which all class names and animation names are scoped locally by default.’
-        1. Inside header.js
-					<ul><li><Link className={headerStyles.link} to='/'>Home</Link></li>
+      1. Inside header.js
+		<ul><li><Link className={headerStyles.link} to='/'>Home</Link></li>
             1. He described it as dynamic
 		2. Inside header.module.scss just a normal .link class 
 		3. Creates another modular scss layout.module.scss
@@ -150,10 +150,10 @@ const Header =() => {
 
 #10 Sourcing Content from the file system
 
-1.Putting Data in our react components was great to demonstrate how GraphQL works, but for more complex/larger bits of information this will get a little clunky/bad
+	1.Putting Data in our react components was great to demonstrate how GraphQL works, but for more complex/larger bits of information this will get a little clunky/bad
 
-W-PED: gatsby-bootcamp raf$ npm install gatsby-source-filesystem@2.0.28
+	W-PED: gatsby-bootcamp raf$ npm install gatsby-source-filesystem@2.0.28
 
-He creates a Posts file in the directory, and two md files
- 	1. Gatsby.md and react.MD styled like a github readme
-	2.  
+	He creates a Posts file in the directory, and two md files
+ 		1. Gatsby.md and react.MD styled like a github readme
+		2.  Another query in GraphQL Playground, this time drilling down to md files we created 
