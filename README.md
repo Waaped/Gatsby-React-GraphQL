@@ -131,9 +131,9 @@ const Header =() => {
     return (
         <header className={headerStyles.header}>
             <h1>
-                <Link className={headerStyles.title} to='/'>{data.site.siteMetadata.title}</Link>
-1. By Importing graphQL and useStaticQuery we can keep data consistent across the app, and update information without repeating ourselves. Then we injected into the JSX.
-2. Challenge: Put dynamic data into footer for author using the same techinque from the header component
+			<link classname={headerstyles.title} to='/'>{data.site.sitemetadata.title}</link></header> <h1/>
+1. by importing graphql and usestaticquery we can keep data consistent across the app, and update information without repeating ourselves. then we injected into the jsx.
+2. challenge: put dynamic data into footer for author using the same techinque from the header component
 
 #9 GraphQL Playground
 
