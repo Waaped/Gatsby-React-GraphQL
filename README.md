@@ -1,5 +1,6 @@
 # Gatsby-React-GraphQL
 Gatsby modular CSS and GraphQL
+Great CMS integration for wordpress clients, elementor so damn slow.
 
 Great Gatsby Bootcamp FCC
 https://www.youtube.com/watch?v=kzWIUX3CpuI
