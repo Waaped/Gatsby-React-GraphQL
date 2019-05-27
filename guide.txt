@@ -1,6 +1,3 @@
-# Gatsby-React-GraphQL
-Gatsby modular CSS and GraphQL
-
 Great Gatsby Bootcamp FCC
 https://www.youtube.com/watch?v=kzWIUX3CpuI
 
@@ -85,8 +82,8 @@ $color:green;
 3. Once we import the style into header, it is affecting the entire page, because the a tags are not scoped to the component
     1. We change the header.scss into modular scss. So the styling becomes dynamic. Header.module.scsss
     2. This stops the global CSS problems you had in Your Vendo App when you implemented the State managed component ‘CSS files in which all class names and animation names are scoped locally by default.’
-      1. Inside header.js
-		<ul><li><Link className={headerStyles.link} to='/'>Home</Link></li>
+        1. Inside header.js
+					<ul><li><Link className={headerStyles.link} to='/'>Home</Link></li>
             1. He described it as dynamic
 		2. Inside header.module.scss just a normal .link class 
 		3. Creates another modular scss layout.module.scss
@@ -102,8 +99,8 @@ $color:green;
 3. module.exports = {
   /* Your site config here */
   siteMetadata:{
-    title:'Your Title',
-    author:'Your Name'
+    title:'FullStack-Raf',
+    author:'Rafael Vasquez'
   },
   plugins:[
     'gatsby-plugin-sass'
@@ -119,7 +116,7 @@ import { Link, graphql,useStaticQuery } from 'gatsby';
 import headerStyles from './header.module.scss'
 
 const Header =() => {
-    const data = useStaticQuery(graphql'
+    const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -127,13 +124,13 @@ const Header =() => {
         }
       }
     }
-  ')
+  `)
     return (
         <header className={headerStyles.header}>
             <h1>
-			<link classname={headerstyles.title} to='/'>{data.site.sitemetadata.title}</link></header> <h1/>
-1. by importing graphql and usestaticquery we can keep data consistent across the app, and update information without repeating ourselves. then we injected into the jsx.
-2. challenge: put dynamic data into footer for author using the same techinque from the header component
+                <Link className={headerStyles.title} to='/'>{data.site.siteMetadata.title}</Link>
+1. By Importing graphQL and useStaticQuery we can keep data consistent across the app, and update information without repeating ourselves. Then we injected into the JSX.
+2. Challenge: Put dynamic data into footer for author using the same techinque from the header component
 
 #9 GraphQL Playground
 
@@ -150,10 +147,56 @@ const Header =() => {
 
 #10 Sourcing Content from the file system
 
-	1.Putting Data in our react components was great to demonstrate how GraphQL works, but for more complex/larger bits of information this will get a little clunky/bad
+1.Putting Data in our react components was great to demonstrate how GraphQL works, but for more complex/larger bits of information this will get a little clunky/bad
 
-	W-PED: gatsby-bootcamp raf$ npm install gatsby-source-filesystem@2.0.28
+W-PED: gatsby-bootcamp raf$ npm install gatsby-source-filesystem@2.0.28
 
-	He creates a Posts file in the directory, and two md files
- 		1. Gatsby.md and react.MD styled like a github readme
-		2.  Another query in GraphQL Playground, this time drilling down to md files we created 
+He creates a Posts file in the directory, and two md files
+ 	1. Gatsby.md and react.MD styled like a github readme
+	2.  Edits, Gatsby-Config file, installs another Gatsby plugin Gatsby-transformer-remark 
+	3. Npm run develop, we will now be able to access our parsed md files in the graphQL API
+	4. Running a query 
+		query {
+  			allMarkdownRemark {
+				    edges {
+ 				     node {
+   					     frontmatter {
+   								       title
+  								        date
+  							      }
+							        html
+					        excerpt
+						      }
+						    }
+					  }
+				}
+	5.  Had to shift the title:(shift here)’’, and date:	‘’ for key value paring in MarkdownRemark to work
+
+#11 Generating Markdown Posts
+	1. Inserting the data Const, into our blog, creating a .map to iterate over our edge>node>frontmatter
+		2:03:20
+	
+#12 Generating Slugs
+	Dynamically creating pages from .md blog posts
+	
+	Goals
+	1. Generate a slug for each post
+	2. Generate the blog post page template
+	3. Generate a new page for each post
+	
+1.  Generating Gatsby-node.js file at source
+2.  Gatsbys.org/docs/apir-reference---> Gatsby Node APIs, APIs we can use with the Gatsby-node.js file.
+3. Headed to Node.js documentation/ path.basename(path,=[, ext]) returns the last portion of a path …/articles/5-5-2019/sushi-Tour-Day-5’ would extract sushi-tour-day-5, allowing you to sluggify and create a path in your routes!
+4. Refer to node js documentation for some of the coding he did in the node js file
+
+#13 Dynamically Generating Pages
+
+1. Created new Directory in src. Called ’Templates’
+    1. In templates we create a blog.js file, with basic React, and Layout import in the function(const) 
+    2. We head to Gatsby.js Documentation and look at the documentation called createPage.
+	3. Using node to retrieve markdown in template/blog.js
+#14 Creating images
+	1. npm install gatsby-plugin-sharp@2.0.32 gatsby-remark-images@3.0.10 gatsby-remark-relative-images
+
+
+      
