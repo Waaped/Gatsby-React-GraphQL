@@ -195,8 +195,34 @@ He creates a Posts file in the directory, and two md files
     1. In templates we create a blog.js file, with basic React, and Layout import in the function(const) 
     2. We head to Gatsby.js Documentation and look at the documentation called createPage.
 	3. Using node to retrieve markdown in template/blog.js
-#14 Creating images
+#13 Creating images
 	1. npm install gatsby-plugin-sharp@2.0.32 gatsby-remark-images@3.0.10 gatsby-remark-relative-images
+	2. Feels a little pointless, as we will be using a CMS
+#14 Contentful.com
+	1.Create your data model in regular text, fields(Time,Slug,Date/time,Body) 
+	2. In order to source contentful, we will need to go to Gatsbyjs.org and pick up the gatsby-source-contentful 		package. We can use the Wordpress version, but here we will stick with source contentful as we have already 		created the model.
+	3. Add the plugin to Gatsby config, the usual Plugin,Resolve,Option, Get the API keys from contentful.
+		1.Space ID, and Content Delivery API access token needed.
+	 plugins: [ {
+    resolve:'gatsby-source-contentful',
+    options:{
+      spaceId:process.env.CONTENTFUL_SPACE_ID,
+      accessToken:process.env.CONTENTFUL_ACCESS_TOKEN,
+    }
+  },
+ 
+4. In ENV.development add these lines and insert your API tokens into it,
+    1. CONTENTFUL_SPACE_ID={Your key, no brackets}
+    2. CONTENTFUL_ACCESS_TOKEN={Your key, no brackets}
 
+#15 Rendering Content in Blog Post
+	1. Heading into Gatsby-node.js, removing and replacing allmarkDownQuery.
+	2. Had to redo Data model, body to rich text from regular text, all kinds of npm issues for a simple change
+	3.Could’nt connect fields, node type and blog, for contentful images and blogs, so many npm errors 
+	4. Decided to npm install cloned project from his directory, nothing was wrong on my end,some updated
+	graphQL syntax in npm package from a a month ago interfered, Decided not to go down the rabbit hole any longer.	will drill down myself later.
+	5. Installing React helmet for Gatsby ‘Gatsby-plugin-react-helmet’
+
+	
 
       
