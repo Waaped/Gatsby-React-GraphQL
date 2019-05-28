@@ -223,6 +223,11 @@ He creates a Posts file in the directory, and two md files
 	graphQL syntax in npm package from a a month ago interfered, Decided not to go down the rabbit hole any longer.	will drill down myself later.
 	5. Installing React helmet for Gatsby ‘Gatsby-plugin-react-helmet’
 
-	
+#16 Deployment
+1. Creating private Github Repository, git remote add from existing repository.
+2. Deployment Netlify, Github auto deploys any time you push to master, great to test features out.
+3. Add variables, the two from step #14 section 4.
+4. Manual deploy for the first time only.
+5. Contentful content no auto-deployed, Do it yourself
 
-      
+Bootcamp over, lets build!
