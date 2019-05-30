@@ -173,6 +173,9 @@ const Header =() => {
 
 #9 GraphQL Playground
 
+May 30! Update, Don't use this causes more headaches, as the graphQL schema gets updated, Content didn't update from contentful after 30 minutes, nothing was wrong with my server, or api keys. But the normal graphql IDE was updated 
+without a hitch. Might run well on your build, not mine.
+
 1. Instead of using GraphiQL to test queries we will be installing GraphQL playground a newer solution
 2. 1:47 mark, Just new IDE.
     1. npm install --save-dev env-cmd
